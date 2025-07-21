@@ -3,15 +3,13 @@ import { getContactById } from "@/lib/data";
 import { ContactForm } from "@/components/contact-form";
 
 interface ContactDetailPageProps {
-  params: {
-    id: string;
-  };
+ params: Promise<{ id: string }>
 }
 
 export default async function ContactDetailPage({
   params,
 }: ContactDetailPageProps) {
- const { id } = params;
+ const { id } = await params;
 
   const contact = await getContactById(id);
 
