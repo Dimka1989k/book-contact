@@ -14,7 +14,7 @@ export default async function ContactDetailPage({
   const resolvedParams = await Promise.resolve(params);
   const { id } = resolvedParams;
 
-  const contact = getContactById(id);
+  const contact = await getContactById(id);
 
   if (!contact) {
     notFound();
