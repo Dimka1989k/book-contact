@@ -11,8 +11,7 @@ interface ContactDetailPageProps {
 export default async function ContactDetailPage({
   params,
 }: ContactDetailPageProps) {
-  const resolvedParams = await Promise.resolve(params);
-  const { id } = resolvedParams;
+ const { id } = params;
 
   const contact = await getContactById(id);
 
